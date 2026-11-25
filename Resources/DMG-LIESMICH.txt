@@ -1,0 +1,30 @@
+EQLisa – Mixer & Equalizer für die macOS-Menüleiste
+====================================================
+
+INSTALLIEREN
+1. EQLisa.app auf den Ordner „Programme“ ziehen.
+2. EQLisa aus dem Programme-Ordner starten. Danach erscheint oben in der
+   Menüleiste ein Schieberegler-Symbol.
+
+ERSTER START – „EQLisa kann nicht geöffnet werden“
+EQLisa ist kostenlos und nicht bei Apple registriert, deshalb warnt macOS
+beim ersten Start. So öffnest du es trotzdem:
+1. EQLisa einmal starten und die Warnung mit „Fertig“ schließen.
+2. Systemeinstellungen → Datenschutz & Sicherheit öffnen und nach unten
+   scrollen. Bei „EQLisa wurde blockiert“ auf „Trotzdem öffnen“ klicken.
+3. EQLisa erneut starten und „Trotzdem öffnen“ bestätigen.
+
+Alternativ im Terminal:
+   xattr -dr com.apple.quarantine /Applications/EQLisa.app
+
+BERECHTIGUNGEN
+- „Systemaudio aufnehmen“: wird beim ersten Regeln einer App abgefragt und
+  ist nötig, damit EQLisa die Lautstärke ändern kann.
+- Tabs einzeln regeln (Safari, Chrome, Brave): Anleitung im Info-Fenster
+  (ⓘ im EQLisa-Menü).
+
+VORAUSSETZUNGEN
+macOS 14.2 oder neuer, Apple Silicon oder Intel.
+
+Quellcode & Hilfe: https://github.com/deenice87/EQLisa
+by Dennis Rothfuss

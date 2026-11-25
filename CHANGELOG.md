@@ -1,8 +1,10 @@
 # Changelog
 
-## Unveröffentlicht
+## 0.3.0 – 2026-11-25
 
 - Lautstärke pro Tab jetzt auch in Brave
+- Universal-Build (Apple Silicon + Intel)
+- DMG-Installer zum Weitergeben (`./make-dmg.sh`)
 
 ## 0.2.0 – 2026-11-25
 

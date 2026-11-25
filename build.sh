@@ -5,11 +5,15 @@
 set -e
 cd "$(dirname "$0")"
 
-swift build -c release
+# Universal-Build: Apple Silicon + Intel
+swift build -c release --triple arm64-apple-macosx14.2
+swift build -c release --triple x86_64-apple-macosx14.2
 APP=build/EQLisa.app
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
-cp "$(swift build -c release --show-bin-path)/EQLisa" "$APP/Contents/MacOS/EQLisa"
+lipo -create -output "$APP/Contents/MacOS/EQLisa" \
+  .build/arm64-apple-macosx/release/EQLisa \
+  .build/x86_64-apple-macosx/release/EQLisa
 cp Resources/Info.plist "$APP/Contents/Info.plist"
 
 # App-Icon (.icns) aus Resources/AppIcon-1024.png

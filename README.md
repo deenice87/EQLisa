@@ -25,6 +25,12 @@ Ein schlanker Mixer und Equalizer für die macOS-Menüleiste: Lautstärke **pro 
 ./build.sh install    # baut, kopiert nach /Applications und startet
 ```
 
+Installer zum Weitergeben (Universal: Apple Silicon und Intel):
+
+```sh
+./make-dmg.sh         # erzeugt build/EQLisa-<version>.dmg
+```
+
 Beim ersten Regeln fragt macOS nach der Berechtigung **„Systemaudio aufnehmen“**. Ohne diese Erlaubnis bleibt eine geregelte App stumm.
 
 ## Tabs einzeln regeln
