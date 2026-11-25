@@ -1,5 +1,7 @@
 # EQLisa
 
+![macOS 14.2+](https://img.shields.io/badge/macOS-14.2%2B-black?logo=apple) ![Swift](https://img.shields.io/badge/Swift-5.10%2B-orange?logo=swift) ![Lizenz: MIT](https://img.shields.io/badge/Lizenz-MIT-blue)
+
 Ein schlanker Mixer und Equalizer für die macOS-Menüleiste: Lautstärke **pro App** und **pro Browser-Tab**, 10-Band-EQ, Solo mit Fade und schnelle Wahl des Ausgabegeräts. Dafür braucht es keinen Audio-Treiber und keine Kernel-Erweiterung.
 
 ## Funktionen
@@ -66,6 +68,6 @@ Resources/               Info.plist, App-Icon
 Scripts/make-icon.swift  erzeugt das App-Icon aus der Vorlage
 ```
 
----
+## Lizenz
 
-by Dennis Rothfuss
+[MIT](LICENSE) – © 2026 Dennis Rothfuss
