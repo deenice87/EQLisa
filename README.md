@@ -13,12 +13,22 @@ Ein schlanker Mixer und Equalizer für die macOS-Menüleiste: Lautstärke **pro 
 - **Ausgabegerät** direkt aus der Menüleiste umschalten (Lautsprecher, Kopfhörer, Bluetooth, AirPlay, Monitor …).
 - Option „Bei Anmeldung starten“.
 
+## Download
+
+**[⬇ Neueste Version herunterladen (DMG)](https://github.com/deenice87/EQLisa/releases/latest)**: EQLisa.app auf „Programme“ ziehen, fertig.
+
+EQLisa ist nicht bei Apple notarisiert, deshalb blockiert macOS den ersten Start. Starte EQLisa einmal, öffne dann **Systemeinstellungen → Datenschutz & Sicherheit → „Trotzdem öffnen“** und starte es erneut. Alternativ im Terminal:
+
+```sh
+xattr -dr com.apple.quarantine /Applications/EQLisa.app
+```
+
 ## Voraussetzungen
 
 - macOS 14.2 oder neuer (getestet auf macOS 26)
 - Swift-Toolchain, z. B. die Xcode Command Line Tools (`xcode-select --install`). Xcode selbst ist nicht nötig.
 
-## Bauen und installieren
+## Selbst bauen
 
 ```sh
 ./build.sh            # baut build/EQLisa.app
@@ -50,7 +60,7 @@ Das Info-Fenster (ⓘ im Menü) zeigt, ob alles eingerichtet ist.
 
 ## So funktioniert's
 
-- **Apps:** EQLisa nutzt die *Core Audio Process Taps* (ab macOS 14.2). Der Ton einer App wird abgegriffen und das Original stummgeschaltet. Lautstärke, EQ und Solo-Fade werden in Echtzeit verrechnet, dann geht der Ton über ein privates Aggregate-Device an das gewählte Ausgabegerät. Steht eine App auf 100 % ohne EQ, greift EQLisa gar nicht ein.
+- **Apps:** EQLisa nutzt die *Core Audio Process Taps* (ab macOS 14.2). Der Ton einer App wird abgegriffen und das Original stummgeschaltet. Lautstärke, EQ und Solo-Fade werden in Echtzeit verrechnet. Danach geht der Ton an das gewählte Ausgabegerät. Dafür erzeugt EQLisa zur Laufzeit ein **privates Aggregate-Device**, eine eingebaute macOS-Funktion. Es ist nur für EQLisa sichtbar und verschwindet beim Beenden wieder. **Es wird kein Treiber und keine virtuelle Soundkarte installiert.** Steht eine App auf 100 % ohne EQ, greift EQLisa gar nicht ein.
 - **Tabs:** Browser spielen alle Tabs über einen einzigen Audio-Prozess ab. Für macOS ist der Browser deshalb nur eine Tonquelle. EQLisa setzt die Lautstärke darum per AppleScript direkt im Tab, an den `<video>`- und `<audio>`-Elementen. Der eigene Lautstärkeregler der Seite bleibt dabei unberührt.
 
 ### Grenzen
