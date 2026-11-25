@@ -14,7 +14,7 @@
     <key>LSUIElement</key><true/>
     <key>NSHighResolutionCapable</key><true/>
     <key>NSAppleEventsUsageDescription</key>
-    <string>EQLisa steuert Safari und Chrome, um die Lautstärke einzelner Tabs zu regeln.</string>
+    <string>EQLisa steuert Safari, Chrome und Brave, um die Lautstärke einzelner Tabs zu regeln.</string>
     <key>NSAudioCaptureUsageDescription</key>
     <string>EQLisa braucht Zugriff auf den Audio-Output deiner Apps, um deren Lautstärke einzeln zu regeln.</string>
 </dict>

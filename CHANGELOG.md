@@ -1,5 +1,9 @@
 # Changelog
 
+## Unveröffentlicht
+
+- Lautstärke pro Tab jetzt auch in Brave
+
 ## 0.2.0 – 2026-11-25
 
 Erste öffentliche Version.

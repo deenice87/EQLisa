@@ -302,7 +302,7 @@ struct BrowserStatus: View {
                     .foregroundStyle(.orange)
                 Text(browser.key == "safari"
                      ? "Einmalig in Safari: Einstellungen → Erweitert → „Funktionen für Webentwickler“ an, dann Entwickler → „JavaScript von Apple Events erlauben“."
-                     : "Einmalig in Chrome: Menü Darstellung → Entwickler → „JavaScript von Apple Events zulassen“.")
+                     : "Einmalig in \(browser.displayName): Menü Darstellung → Entwickler → „JavaScript von Apple Events zulassen“.")
                     .font(.caption2)
                     .foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
@@ -425,6 +425,11 @@ struct InfoView: View {
             step(browser: "chrome", title: "Chrome", lines: [
                 "Menü Darstellung → Entwickler → „JavaScript von Apple Events zulassen“",
                 "Nachfrage „EQLisa möchte Google Chrome steuern“ erlauben",
+            ])
+
+            step(browser: "brave", title: "Brave", lines: [
+                "Menü Darstellung → Entwickler → „JavaScript von Apple Events zulassen“",
+                "Nachfrage „EQLisa möchte Brave Browser steuern“ erlauben",
             ])
 
             Text("Danach erscheinen Tabs mit Video oder Audio eingerückt unter dem Browser – mit eigenem Regler.")

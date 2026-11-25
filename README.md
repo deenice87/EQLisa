@@ -7,7 +7,7 @@ Ein schlanker Mixer und Equalizer für die macOS-Menüleiste: Lautstärke **pro 
 ## Funktionen
 
 - **Lautstärke pro App:** Jede App, die Ton macht, hat einen eigenen Regler (0–150 %) und einen Stumm-Knopf. Die Einstellungen bleiben gespeichert.
-- **Lautstärke pro Tab:** In Safari und Chrome hat jeder Tab mit Video oder Audio einen eigenen Regler und sein Favicon. Netflix und YouTube laufen so unabhängig voneinander.
+- **Lautstärke pro Tab:** In Safari, Chrome und Brave hat jeder Tab mit Video oder Audio einen eigenen Regler und sein Favicon. Netflix und YouTube laufen so unabhängig voneinander.
 - **10-Band-Equalizer** (31 Hz – 16 kHz) mit Preamp, fertigen Presets und eigenen Presets. Pro App lässt er sich ausschalten.
 - **Solo:** Ein Klick auf eine App blendet alle anderen weich aus, ein zweiter Klick blendet sie wieder ein.
 - **Ausgabegerät** direkt aus der Menüleiste umschalten (Lautsprecher, Kopfhörer, Bluetooth, AirPlay, Monitor …).
@@ -36,9 +36,9 @@ Dafür braucht es keine Browser-Erweiterung, nur einmalig diese Einstellungen:
 2. Reiter „Entwickler“ → „JavaScript von Apple Events erlauben“
 3. Die Nachfrage „EQLisa möchte Safari steuern“ erlauben
 
-**Chrome**
+**Chrome / Brave**
 1. Menü Darstellung → Entwickler → „JavaScript von Apple Events zulassen“
-2. Die Nachfrage „EQLisa möchte Google Chrome steuern“ erlauben
+2. Die Nachfrage „EQLisa möchte Google Chrome bzw. Brave Browser steuern“ erlauben
 
 Das Info-Fenster (ⓘ im Menü) zeigt, ob alles eingerichtet ist.
 

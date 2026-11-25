@@ -52,6 +52,9 @@ final class BrowserTabs: ObservableObject {
                 runJS: "do JavaScript \"%JS%\" in %TAB%"),
         Browser(key: "chrome", bundleID: "com.google.Chrome", appName: "Google Chrome", displayName: "Chrome",
                 runJS: "execute %TAB% javascript \"%JS%\""),
+        // Brave is Chromium-based and speaks the same AppleScript dictionary as Chrome.
+        Browser(key: "brave", bundleID: "com.brave.Browser", appName: "Brave Browser", displayName: "Brave",
+                runJS: "execute %TAB% javascript \"%JS%\""),
     ]
 
     @Published private(set) var tabs: [String: BrowserTab] = [:]
