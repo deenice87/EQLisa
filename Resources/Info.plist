@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleName</key><string>EQLisa</string>
+    <key>CFBundleDisplayName</key><string>EQLisa</string>
+    <key>CFBundleIdentifier</key><string>app.eqlisa.EQLisa</string>
+    <key>CFBundleExecutable</key><string>EQLisa</string>
+    <key>CFBundleIconFile</key><string>AppIcon</string>
+    <key>CFBundlePackageType</key><string>APPL</string>
+    <key>CFBundleShortVersionString</key><string>0.2.0</string>
+    <key>CFBundleVersion</key><string>2</string>
+    <key>LSMinimumSystemVersion</key><string>14.2</string>
+    <key>LSUIElement</key><true/>
+    <key>NSHighResolutionCapable</key><true/>
+    <key>NSAppleEventsUsageDescription</key>
+    <string>EQLisa steuert Safari und Chrome, um die Lautstärke einzelner Tabs zu regeln.</string>
+    <key>NSAudioCaptureUsageDescription</key>
+    <string>EQLisa braucht Zugriff auf den Audio-Output deiner Apps, um deren Lautstärke einzeln zu regeln.</string>
+</dict>
+</plist>
