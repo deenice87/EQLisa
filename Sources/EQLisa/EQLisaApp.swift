@@ -33,6 +33,7 @@ struct MenuView: View {
     @EnvironmentObject private var mixer: AudioMixer
     @EnvironmentObject private var browserTabs: BrowserTabs
     @State private var launchAtLogin = SMAppService.mainApp.status == .enabled
+    @State private var contentHeight: CGFloat = 0
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -117,6 +118,39 @@ struct MenuView: View {
         }
         .padding(14)
         .frame(width: 380)
+        .fixedSize(horizontal: false, vertical: true)
+        .background(GeometryReader { g in Color.clear.preference(key: ContentHeightKey.self, value: g.size.height) })
+        .onPreferenceChange(ContentHeightKey.self) { contentHeight = $0 }
+        .background(PanelSizer(height: contentHeight))
+        .frame(maxHeight: .infinity, alignment: .top)
+    }
+}
+
+private struct ContentHeightKey: PreferenceKey {
+    static let defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) { value = max(value, nextValue()) }
+}
+
+/// Das Fenster von `MenuBarExtra` wächst mit dem Inhalt, schrumpft aber nicht wieder
+/// (z. B. wenn der EQ eingeklappt wird oder Apps verschwinden) – übrig bliebe leerer Raum.
+/// Deshalb passen wir die Fensterhöhe selbst an, oben verankert.
+private struct PanelSizer: NSViewRepresentable {
+    let height: CGFloat
+
+    func makeNSView(context: Context) -> NSView { NSView() }
+
+    func updateNSView(_ view: NSView, context: Context) {
+        let height = height
+        DispatchQueue.main.async {
+            guard height > 0, let window = view.window else { return }
+            let current = window.contentLayoutRect.height
+            guard abs(current - height) > 0.5 else { return }
+            var frame = window.frame
+            let top = frame.maxY
+            frame.size.height += height - current
+            frame.origin.y = top - frame.size.height
+            window.setFrame(frame, display: true, animate: false)
+        }
     }
 }
 

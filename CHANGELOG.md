@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1 – 2026-11-27
+
+- Menü-Panel passt seine Höhe jetzt korrekt an: kein leerer Rand mehr oben und unten, wenn der Inhalt kleiner wird (z. B. EQ eingeklappt oder weniger Apps aktiv)
+
 ## 0.3.0 – 2026-11-25
 
 - Lautstärke pro Tab jetzt auch in Brave
