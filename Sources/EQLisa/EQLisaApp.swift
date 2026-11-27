@@ -11,6 +11,7 @@ struct EQLisaApp: App {
             MenuView()
                 .environmentObject(delegate.mixer)
                 .environmentObject(delegate.mixer.browserTabs)
+                .environmentObject(delegate.updater)
         } label: {
             Image(systemName: "slider.vertical.3")
         }
@@ -21,6 +22,8 @@ struct EQLisaApp: App {
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate {
     let mixer = AudioMixer()
+    let updater = Updater()
+
 
     func applicationWillTerminate(_ notification: Notification) {
         mixer.shutdown()
@@ -41,6 +44,7 @@ struct MenuView: View {
                 Text("EQLisa").font(.headline)
                 Spacer()
                 OutputPicker()
+                UpdateButton()
                 InfoButton()
             }
 

@@ -41,6 +41,14 @@ Installer zum Weitergeben (Universal: Apple Silicon und Intel):
 ./make-dmg.sh         # erzeugt build/EQLisa-<version>.dmg
 ```
 
+Releases werden mit einem festen, selbst signierten Zertifikat signiert. Dadurch behält macOS die Berechtigungen über Updates hinweg, und die eingebaute Update-Funktion installiert nur Updates mit demselben Zertifikat. Einmalig anlegen mit:
+
+```sh
+./Scripts/make-signing-cert.sh   # „EQLisa Local Signing“ im Anmelde-Schlüsselbund
+```
+
+Ohne Zertifikat signiert `build.sh` ad hoc. Das reicht für eigene Builds, aber nicht für Releases.
+
 Beim ersten Regeln fragt macOS nach der Berechtigung **„Systemaudio aufnehmen“**. Ohne diese Erlaubnis bleibt eine geregelte App stumm.
 
 ## Tabs einzeln regeln

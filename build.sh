@@ -26,7 +26,15 @@ for s in 16 32 128 256 512; do
 done
 iconutil -c icns "$ICONSET" -o "$APP/Contents/Resources/AppIcon.icns"
 cp Resources/AppIcon-1024.png "$APP/Contents/Resources/AppIcon-1024.png"   # für das Info-Fenster
-codesign --force --sign - "$APP"
+# Mit festem lokalem Zertifikat signieren, damit macOS die Berechtigungen (Audio-Aufnahme,
+# Browser-Steuerung) über Builds und Updates hinweg behält und der Updater prüfen kann, dass ein
+# Update wirklich von uns stammt (einmalig anlegen: ./Scripts/make-signing-cert.sh). Sonst ad hoc.
+if security find-certificate -c "EQLisa Local Signing" >/dev/null 2>&1; then
+  codesign --force --sign "EQLisa Local Signing" "$APP"
+else
+  echo "⚠️  Ad-hoc-Signatur – Berechtigungen gehen bei jedem Update verloren. Für Releases zuerst ./Scripts/make-signing-cert.sh ausführen."
+  codesign --force --sign - "$APP"
+fi
 echo "✅ $APP gebaut."
 
 if [[ "$1" == "install" ]]; then
